@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Permite leitura e gravação pública nas coleções de bookings (agendamentos) e clients (clientes),
+    // já que o aplicativo é público e não utiliza login com o Firebase Auth.
+    
+    match /bookings/{bookingId} {
+      allow read, write: if true;
+    }
+
+    match /clients/{clientId} {
+      allow read, write: if true;
+    }
+  }
+}

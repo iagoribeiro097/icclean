@@ -1,0 +1,131 @@
+{
+  "entities": {
+    "Booking": {
+      "title": "Booking",
+      "description": "Represents an upholstery cleaning booking",
+      "type": "object",
+      "properties": {
+        "clientName": {
+          "type": "string",
+          "description": "Full name of the client"
+        },
+        "clientPhone": {
+          "type": "string",
+          "description": "Brazilian formatted phone number"
+        },
+        "clientEmail": {
+          "type": "string",
+          "description": "Optional email of the client"
+        },
+        "serviceId": {
+          "type": "string",
+          "description": "ID of the selected service"
+        },
+        "serviceName": {
+          "type": "string",
+          "description": "Display name of the selected service"
+        },
+        "date": {
+          "type": "string",
+          "description": "Scheduled date for the service"
+        },
+        "time": {
+          "type": "string",
+          "description": "Scheduled time slot"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "approved", "rejected"],
+          "description": "Approval status of the booking"
+        },
+        "address": {
+          "type": "string",
+          "description": "Full service address in Jundiaí/SP"
+        },
+        "street": {
+          "type": "string",
+          "description": "Street name and house/apartment number"
+        },
+        "neighborhood": {
+          "type": "string",
+          "description": "Neighborhood/district name"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional details or instructions provided by client"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of booking creation"
+        }
+      },
+      "required": [
+        "clientName",
+        "clientPhone",
+        "serviceId",
+        "serviceName",
+        "date",
+        "time",
+        "status",
+        "address",
+        "createdAt"
+      ]
+    },
+    "Client": {
+      "title": "Client",
+      "description": "Represents a registered client of IC Clean",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Normalized phone number or unique ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Client full name"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Client phone number"
+        },
+        "email": {
+          "type": "string",
+          "description": "Client email address"
+        },
+        "address": {
+          "type": "string",
+          "description": "Client last service address"
+        },
+        "street": {
+          "type": "string",
+          "description": "Street name and house/apartment number"
+        },
+        "neighborhood": {
+          "type": "string",
+          "description": "Neighborhood/district name"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of registration"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "phone",
+        "address",
+        "createdAt"
+      ]
+    }
+  },
+  "firestore": {
+    "bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Collection of cleaning appointments"
+    },
+    "clients/{clientId}": {
+      "schema": "Client",
+      "description": "Collection of registered clients"
+    }
+  }
+}
