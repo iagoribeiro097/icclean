@@ -1,0 +1,8 @@
+{
+  "name": "IC CLEAN",
+  "description": "Website institucional para empresa de higienização de estofados com visualização de antes e depois, catálogo de serviços e sistema completo de agendamento e controle para clientes e administradores.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
